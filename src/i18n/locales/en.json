@@ -1,0 +1,353 @@
+{
+  "app": {
+    "name": "Sudoku Master",
+    "tagline": "Classic Sudoku with hints that teach. Works offline."
+  },
+  "nav": {
+    "home": "Home",
+    "daily": "Daily",
+    "stats": "Statistics",
+    "settings": "Settings",
+    "language": "Language",
+    "main": "Main navigation",
+    "howTo": "How to play"
+  },
+  "common": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "loading": "Generating puzzle…",
+    "labelValue": "{{label}}: {{value}}",
+    "skipToContent": "Skip to content"
+  },
+  "difficulty": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "expert": "Expert",
+    "master": "Master"
+  },
+  "home": {
+    "continue": "Continue game",
+    "continueDetail": "{{difficulty}} · {{time}}",
+    "newGame": "New game",
+    "dailyTitle": "Daily challenge",
+    "dailyPlay": "Play today's puzzle",
+    "dailyDone": "Today's puzzle is done. Come back tomorrow!"
+  },
+  "game": {
+    "mistakes": "Mistakes",
+    "mistakesValue": "{{value}}/{{max}}",
+    "time": "Time",
+    "pause": "Pause",
+    "resume": "Resume",
+    "newGame": "New game",
+    "dailyLabel": "Daily · {{date}}"
+  },
+  "keypad": {
+    "label": "Number pad",
+    "digit": "{{digit}}, {{left}} left",
+    "undo": "Undo",
+    "erase": "Erase",
+    "notes": "Notes",
+    "notesOn": "On",
+    "notesOff": "Off",
+    "hint": "Hint"
+  },
+  "board": {
+    "label": "Sudoku grid"
+  },
+  "cell": {
+    "label": "Row {{row}}, column {{col}}: {{state}}",
+    "empty": "empty",
+    "given": "{{digit}}, given",
+    "value": "{{digit}}",
+    "wrong": "{{digit}}, incorrect",
+    "notes": "empty, notes {{notes}}"
+  },
+  "pause": {
+    "title": "Paused",
+    "text": "Take a break. The timer is stopped."
+  },
+  "gameOver": {
+    "title": "Game over",
+    "text": "You made {{max}} mistakes.",
+    "secondChance": "Second chance",
+    "secondChanceText": "Takes back your last move. You can only use it once.",
+    "restart": "Restart this puzzle",
+    "newGame": "New game"
+  },
+  "win": {
+    "title": "Puzzle solved!",
+    "time": "Time",
+    "mistakes": "Mistakes",
+    "hints": "Hints",
+    "newGame": "New game",
+    "nextDifficulty": "Try {{difficulty}}",
+    "backToCalendar": "Back to calendar"
+  },
+  "newGame": {
+    "title": "New game",
+    "text": "Choose a difficulty."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "mistakeLimit": "Mistake limit",
+    "mistakeLimit3": "3 mistakes",
+    "mistakeLimitOff": "Unlimited",
+    "highlightConflicts": "Highlight conflicts",
+    "highlightSameDigit": "Highlight identical digits",
+    "autoRemoveNotes": "Remove notes automatically",
+    "showTimer": "Show timer"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "stats": {
+    "title": "Statistics",
+    "difficulty": "Difficulty",
+    "played": "Played",
+    "won": "Won",
+    "winRate": "Win rate",
+    "best": "Best time",
+    "average": "Average time",
+    "none": "–",
+    "dailyTitle": "Daily challenge",
+    "currentStreak": "Current streak",
+    "bestStreak": "Best streak",
+    "days_one": "{{count}} day",
+    "days_other": "{{count}} days",
+    "reset": "Reset statistics",
+    "resetTitle": "Reset statistics?",
+    "resetText": "This permanently deletes all your statistics and daily progress.",
+    "resetConfirm": "Reset"
+  },
+  "daily": {
+    "title": "Daily challenge",
+    "text": "A new puzzle every day. Complete every day of a month to earn its badge.",
+    "playToday": "Play today",
+    "todayDone": "Today's puzzle is complete.",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
+    "badge": "Month complete!",
+    "dayCompleted": "{{date}}, completed",
+    "dayAvailable": "{{date}}, play",
+    "dayFuture": "{{date}}, not available yet"
+  },
+  "hints": {
+    "title": "Hint",
+    "apply": "Apply",
+    "dismiss": "Close",
+    "nakedSingle": {
+      "title": "Naked Single",
+      "explain": "{{cell}} has only one candidate left: {{digit}}. Every other digit already appears in its row, column or box.",
+      "summary": "A cell has only one possible digit left, because every other digit already appears in its row, column or box."
+    },
+    "hiddenSingle": {
+      "title": "Hidden Single",
+      "explain_row": "In row {{unit}}, the digit {{digit}} fits in only one cell: {{cell}}.",
+      "explain_col": "In column {{unit}}, the digit {{digit}} fits in only one cell: {{cell}}.",
+      "explain_box": "In box {{unit}}, the digit {{digit}} fits in only one cell: {{cell}}.",
+      "summary": "In a row, column or box, a digit fits in only one cell, even if that cell has other candidates."
+    },
+    "pointing": {
+      "title": "Pointing Pair / Triple",
+      "explain_row": "In box {{box}}, {{digit}} can only be in row {{unit}}. So {{digit}} can be removed from the rest of row {{unit}}.",
+      "explain_col": "In box {{box}}, {{digit}} can only be in column {{unit}}. So {{digit}} can be removed from the rest of column {{unit}}.",
+      "summary": "Inside a box, a digit can only go in one row (or column). It can be removed from the rest of that line outside the box."
+    },
+    "claiming": {
+      "title": "Box/Line Reduction",
+      "explain_row": "In row {{unit}}, {{digit}} can only be in box {{box}}. So {{digit}} can be removed from the other cells of box {{box}}.",
+      "explain_col": "In column {{unit}}, {{digit}} can only be in box {{box}}. So {{digit}} can be removed from the other cells of box {{box}}.",
+      "summary": "Inside a row (or column), a digit can only go in one box. It can be removed from the other cells of that box."
+    },
+    "nakedPair": {
+      "title": "Naked Pair",
+      "explain_row": "{{cells}} can only contain {{digits}}. Those digits can be removed from the other cells of row {{unit}}.",
+      "explain_col": "{{cells}} can only contain {{digits}}. Those digits can be removed from the other cells of column {{unit}}.",
+      "explain_box": "{{cells}} can only contain {{digits}}. Those digits can be removed from the other cells of box {{unit}}.",
+      "summary": "Two cells in a unit share the same two candidates. Those two digits must go there, so they can be removed from the rest of the unit."
+    },
+    "hiddenPair": {
+      "title": "Hidden Pair",
+      "explain_row": "In row {{unit}}, {{digits}} can only go in {{cells}}. All other candidates can be removed from those cells.",
+      "explain_col": "In column {{unit}}, {{digits}} can only go in {{cells}}. All other candidates can be removed from those cells.",
+      "explain_box": "In box {{unit}}, {{digits}} can only go in {{cells}}. All other candidates can be removed from those cells.",
+      "summary": "Two digits can only go in the same two cells of a unit. Those cells can lose all their other candidates."
+    },
+    "nakedTriple": {
+      "title": "Naked Triple",
+      "explain_row": "{{cells}} can only contain {{digits}}. Those digits can be removed from the other cells of row {{unit}}.",
+      "explain_col": "{{cells}} can only contain {{digits}}. Those digits can be removed from the other cells of column {{unit}}.",
+      "explain_box": "{{cells}} can only contain {{digits}}. Those digits can be removed from the other cells of box {{unit}}.",
+      "summary": "Three cells in a unit use only three digits between them. Those digits can be removed from the rest of the unit."
+    },
+    "hiddenTriple": {
+      "title": "Hidden Triple",
+      "explain_row": "In row {{unit}}, {{digits}} can only go in {{cells}}. All other candidates can be removed from those cells.",
+      "explain_col": "In column {{unit}}, {{digits}} can only go in {{cells}}. All other candidates can be removed from those cells.",
+      "explain_box": "In box {{unit}}, {{digits}} can only go in {{cells}}. All other candidates can be removed from those cells.",
+      "summary": "Three digits can only go in the same three cells of a unit. Those cells can lose all their other candidates."
+    },
+    "xWing": {
+      "title": "X-Wing",
+      "explain_row": "In rows {{lines}}, {{digit}} can only be in columns {{crossLines}}. So {{digit}} can be removed from the rest of those columns.",
+      "explain_col": "In columns {{lines}}, {{digit}} can only be in rows {{crossLines}}. So {{digit}} can be removed from the rest of those rows.",
+      "summary": "In two rows, a digit fits in only the same two columns. It must sit on two opposite corners, so it can be removed from the rest of those columns."
+    },
+    "xyWing": {
+      "title": "XY-Wing",
+      "explain": "Whichever of its two digits {{pivot}} takes, one of the wings {{wings}} must be {{digit}}. So any cell that sees both wings cannot be {{digit}}.",
+      "summary": "A pivot cell {X,Y} sees two wings {X,Z} and {Y,Z}. One wing must be Z, so any cell seeing both wings cannot be Z."
+    },
+    "mistake": {
+      "title": "Incorrect digit",
+      "explain": "{{cell}} contains {{digit}}, which is not correct. Apply to erase it."
+    },
+    "badNotes": {
+      "title": "Check your notes",
+      "explain": "The notes in {{cell}} leave out the correct digit. Apply to fix them."
+    },
+    "none": {
+      "title": "No hint available",
+      "explain": "None of the techniques in the hint list applies here. Apply to reveal one cell."
+    }
+  },
+  "announce": {
+    "mistake": "Incorrect. Mistakes: {{value}} of {{max}}.",
+    "won": "Puzzle solved!",
+    "lost": "Game over.",
+    "placed": "{{digit}} placed in {{cell}}"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to home"
+  },
+  "offline": {
+    "message": "You're offline. Everything still works."
+  },
+  "update": {
+    "available": "A new version is available.",
+    "reload": "Reload",
+    "later": "Later",
+    "offlineReady": "Ready to play offline."
+  },
+  "footer": {
+    "label": "Site links",
+    "play": "Play",
+    "learn": "Learn"
+  },
+  "seo": {
+    "home": {
+      "title": "Sudoku Master: Free Online Sudoku That Works Offline",
+      "description": "Play free Sudoku in your browser: 5 difficulty levels, a daily challenge and hints that explain the logic. Works offline, in English, French and Arabic."
+    },
+    "daily": {
+      "title": "Daily Sudoku Challenge | Sudoku Master",
+      "description": "A new free Sudoku puzzle every day. Keep your streak going and earn a badge for every completed month."
+    },
+    "dailyPlay": {
+      "title": "Daily Sudoku, {{date}} | Sudoku Master"
+    },
+    "stats": {
+      "title": "Your Statistics | Sudoku Master",
+      "description": "Games played, win rate and best times for each Sudoku difficulty."
+    },
+    "howTo": {
+      "title": "How to Play Sudoku: Rules and Techniques | Sudoku Master",
+      "description": "Learn the rules of Sudoku and the solving techniques behind every hint: singles, pairs, triples, X-Wing and XY-Wing."
+    },
+    "notFound": {
+      "title": "Page not found | Sudoku Master"
+    }
+  },
+  "landing": {
+    "easy": {
+      "title": "Easy Sudoku: Play Free Online | Sudoku Master",
+      "heading": "Easy Sudoku",
+      "description": "Free easy Sudoku puzzles, solvable with singles only. Perfect for beginners. Hints explain every step. Works offline.",
+      "intro": "Easy puzzles start with 36 or more numbers and can be solved with singles alone: find the one cell where a digit fits. Ideal for learning, or for a quick, relaxing game."
+    },
+    "medium": {
+      "title": "Medium Sudoku: Play Free Online | Sudoku Master",
+      "heading": "Medium Sudoku",
+      "description": "Free medium Sudoku puzzles with 30 to 35 givens. Practise pointing pairs and box/line reduction, with hints that explain the logic.",
+      "intro": "Medium puzzles have 30 to 35 givens. Besides singles, you will need intersections: when a digit is confined to one row or column inside a box, it can be removed from the rest of that line, and the other way round."
+    },
+    "hard": {
+      "title": "Hard Sudoku: Play Free Online | Sudoku Master",
+      "heading": "Hard Sudoku",
+      "description": "Free hard Sudoku puzzles with 28 to 31 givens. Master naked and hidden pairs and triples, with step-by-step hints.",
+      "intro": "Hard puzzles have 28 to 31 givens and call for subsets: naked and hidden pairs and triples that let you clear candidates from the cells around them."
+    },
+    "expert": {
+      "title": "Expert Sudoku: Play Free Online | Sudoku Master",
+      "heading": "Expert Sudoku",
+      "description": "Free expert Sudoku puzzles that need X-Wing and XY-Wing. Every hint explains the pattern. Works offline.",
+      "intro": "Expert puzzles have 24 to 29 givens and cannot be finished without advanced patterns such as the X-Wing and the XY-Wing."
+    },
+    "master": {
+      "title": "Master Sudoku: The Hardest Free Puzzles | Sudoku Master",
+      "heading": "Master Sudoku",
+      "description": "Our hardest free Sudoku puzzles: 25 givens or fewer, solvable by pure logic. Hints explain every advanced step.",
+      "intro": "Master puzzles have 25 givens or fewer and combine every technique, X-Wing and XY-Wing included. Still solvable by logic alone: a real test for experienced players."
+    }
+  },
+  "howTo": {
+    "title": "How to play Sudoku",
+    "intro": "Sudoku is played on a 9×9 grid divided into nine 3×3 boxes. Some cells are already filled in. Your goal is to fill in every empty cell.",
+    "rulesTitle": "The rules",
+    "rules": {
+      "row": "Each row must contain the digits 1 to 9 exactly once.",
+      "col": "Each column must contain the digits 1 to 9 exactly once.",
+      "box": "Each 3×3 box must contain the digits 1 to 9 exactly once.",
+      "unique": "Every puzzle has exactly one solution, and it can always be found by logic, without guessing."
+    },
+    "controlsTitle": "Playing",
+    "controls": {
+      "place": "Tap a cell, then a number, to place a digit.",
+      "notes": "Turn on Notes to write candidates in a cell.",
+      "hint": "Hint shows the next logical step and explains it. Press Apply to use it.",
+      "mistakes": "A wrong digit counts as a mistake. After 3 mistakes the game is over (you can turn this off in Settings)."
+    },
+    "keyboardTitle": "Keyboard shortcuts",
+    "keys": {
+      "arrows": {
+        "key": "Arrow keys",
+        "action": "Move between cells"
+      },
+      "digits": {
+        "key": "1 – 9",
+        "action": "Place or note a digit"
+      },
+      "erase": {
+        "key": "Backspace / Delete",
+        "action": "Erase"
+      },
+      "notes": {
+        "key": "N",
+        "action": "Turn notes on or off"
+      },
+      "undo": {
+        "key": "Ctrl + Z",
+        "action": "Undo"
+      },
+      "redo": {
+        "key": "Ctrl + Shift + Z / Ctrl + Y",
+        "action": "Redo"
+      },
+      "pause": {
+        "key": "Space",
+        "action": "Pause or resume"
+      }
+    },
+    "techniquesTitle": "Solving techniques",
+    "techniquesIntro": "These are the techniques the hint system uses, from easiest to hardest. Each difficulty level needs the ones before it.",
+    "usedFrom": "Needed from {{difficulty}}",
+    "cta": "Start playing"
+  }
+}

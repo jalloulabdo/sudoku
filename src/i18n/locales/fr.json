@@ -1,0 +1,354 @@
+{
+  "app": {
+    "name": "Sudoku Master",
+    "tagline": "Le Sudoku classique, avec des indices qui expliquent. Fonctionne hors ligne."
+  },
+  "nav": {
+    "home": "Accueil",
+    "daily": "Défi du jour",
+    "stats": "Statistiques",
+    "settings": "Paramètres",
+    "language": "Langue",
+    "main": "Navigation principale",
+    "howTo": "Comment jouer"
+  },
+  "common": {
+    "close": "Fermer",
+    "cancel": "Annuler",
+    "loading": "Création de la grille…",
+    "labelValue": "{{label}} : {{value}}",
+    "skipToContent": "Aller au contenu"
+  },
+  "difficulty": {
+    "easy": "Facile",
+    "medium": "Moyen",
+    "hard": "Difficile",
+    "expert": "Expert",
+    "master": "Maître"
+  },
+  "home": {
+    "continue": "Reprendre la partie",
+    "continueDetail": "{{difficulty}} · {{time}}",
+    "newGame": "Nouvelle partie",
+    "dailyTitle": "Défi du jour",
+    "dailyPlay": "Jouer la grille du jour",
+    "dailyDone": "La grille du jour est terminée. Revenez demain !"
+  },
+  "game": {
+    "mistakes": "Erreurs",
+    "mistakesValue": "{{value}}/{{max}}",
+    "time": "Temps",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "newGame": "Nouvelle partie",
+    "dailyLabel": "Défi · {{date}}"
+  },
+  "keypad": {
+    "label": "Pavé numérique",
+    "digit": "{{digit}}, encore {{left}}",
+    "undo": "Annuler",
+    "erase": "Effacer",
+    "notes": "Notes",
+    "notesOn": "Oui",
+    "notesOff": "Non",
+    "hint": "Indice"
+  },
+  "board": {
+    "label": "Grille de Sudoku"
+  },
+  "cell": {
+    "label": "Ligne {{row}}, colonne {{col}} : {{state}}",
+    "empty": "vide",
+    "given": "{{digit}}, donné",
+    "value": "{{digit}}",
+    "wrong": "{{digit}}, incorrect",
+    "notes": "vide, notes {{notes}}"
+  },
+  "pause": {
+    "title": "En pause",
+    "text": "Faites une pause. Le chronomètre est arrêté."
+  },
+  "gameOver": {
+    "title": "Partie terminée",
+    "text": "Vous avez fait {{max}} erreurs.",
+    "secondChance": "Seconde chance",
+    "secondChanceText": "Annule votre dernier coup. Utilisable une seule fois.",
+    "restart": "Recommencer cette grille",
+    "newGame": "Nouvelle partie"
+  },
+  "win": {
+    "title": "Grille résolue !",
+    "time": "Temps",
+    "mistakes": "Erreurs",
+    "hints": "Indices",
+    "newGame": "Nouvelle partie",
+    "nextDifficulty": "Essayer {{difficulty}}",
+    "backToCalendar": "Retour au calendrier"
+  },
+  "newGame": {
+    "title": "Nouvelle partie",
+    "text": "Choisissez une difficulté."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "theme": "Thème",
+    "mistakeLimit": "Limite d'erreurs",
+    "mistakeLimit3": "3 erreurs",
+    "mistakeLimitOff": "Illimitée",
+    "highlightConflicts": "Signaler les conflits",
+    "highlightSameDigit": "Surligner les chiffres identiques",
+    "autoRemoveNotes": "Retirer les notes automatiquement",
+    "showTimer": "Afficher le chronomètre"
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "stats": {
+    "title": "Statistiques",
+    "difficulty": "Difficulté",
+    "played": "Jouées",
+    "won": "Gagnées",
+    "winRate": "Taux de réussite",
+    "best": "Meilleur temps",
+    "average": "Temps moyen",
+    "none": "–",
+    "dailyTitle": "Défi du jour",
+    "currentStreak": "Série en cours",
+    "bestStreak": "Meilleure série",
+    "days_one": "{{count}} jour",
+    "days_many": "{{count}} de jours",
+    "days_other": "{{count}} jours",
+    "reset": "Réinitialiser les statistiques",
+    "resetTitle": "Réinitialiser les statistiques ?",
+    "resetText": "Toutes vos statistiques et votre progression des défis seront définitivement supprimées.",
+    "resetConfirm": "Réinitialiser"
+  },
+  "daily": {
+    "title": "Défi du jour",
+    "text": "Une nouvelle grille chaque jour. Terminez tous les jours d'un mois pour obtenir son badge.",
+    "playToday": "Jouer aujourd'hui",
+    "todayDone": "La grille du jour est terminée.",
+    "prevMonth": "Mois précédent",
+    "nextMonth": "Mois suivant",
+    "badge": "Mois complet !",
+    "dayCompleted": "{{date}}, terminé",
+    "dayAvailable": "{{date}}, jouer",
+    "dayFuture": "{{date}}, pas encore disponible"
+  },
+  "hints": {
+    "title": "Indice",
+    "apply": "Appliquer",
+    "dismiss": "Fermer",
+    "nakedSingle": {
+      "title": "Singleton nu",
+      "explain": "Il ne reste qu'un seul candidat en {{cell}} : {{digit}}. Tous les autres chiffres sont déjà présents dans sa ligne, sa colonne ou son bloc.",
+      "summary": "Il ne reste qu'un seul chiffre possible dans une case, car tous les autres sont déjà dans sa ligne, sa colonne ou son bloc."
+    },
+    "hiddenSingle": {
+      "title": "Singleton caché",
+      "explain_row": "Dans la ligne {{unit}}, le chiffre {{digit}} ne peut aller que dans une seule case : {{cell}}.",
+      "explain_col": "Dans la colonne {{unit}}, le chiffre {{digit}} ne peut aller que dans une seule case : {{cell}}.",
+      "explain_box": "Dans le bloc {{unit}}, le chiffre {{digit}} ne peut aller que dans une seule case : {{cell}}.",
+      "summary": "Dans une ligne, une colonne ou un bloc, un chiffre ne peut aller que dans une seule case, même si elle a d'autres candidats."
+    },
+    "pointing": {
+      "title": "Paire / triplet pointant",
+      "explain_row": "Dans le bloc {{box}}, le {{digit}} ne peut être que dans la ligne {{unit}}. On peut donc retirer le {{digit}} du reste de la ligne {{unit}}.",
+      "explain_col": "Dans le bloc {{box}}, le {{digit}} ne peut être que dans la colonne {{unit}}. On peut donc retirer le {{digit}} du reste de la colonne {{unit}}.",
+      "summary": "Dans un bloc, un chiffre ne peut aller que dans une seule ligne (ou colonne). On peut le retirer du reste de cette ligne, hors du bloc."
+    },
+    "claiming": {
+      "title": "Réduction bloc/ligne",
+      "explain_row": "Dans la ligne {{unit}}, le {{digit}} ne peut être que dans le bloc {{box}}. On peut donc retirer le {{digit}} des autres cases du bloc {{box}}.",
+      "explain_col": "Dans la colonne {{unit}}, le {{digit}} ne peut être que dans le bloc {{box}}. On peut donc retirer le {{digit}} des autres cases du bloc {{box}}.",
+      "summary": "Dans une ligne (ou colonne), un chiffre ne peut aller que dans un seul bloc. On peut le retirer des autres cases de ce bloc."
+    },
+    "nakedPair": {
+      "title": "Paire nue",
+      "explain_row": "{{cells}} ne peuvent contenir que {{digits}}. Ces chiffres peuvent être retirés des autres cases de la ligne {{unit}}.",
+      "explain_col": "{{cells}} ne peuvent contenir que {{digits}}. Ces chiffres peuvent être retirés des autres cases de la colonne {{unit}}.",
+      "explain_box": "{{cells}} ne peuvent contenir que {{digits}}. Ces chiffres peuvent être retirés des autres cases du bloc {{unit}}.",
+      "summary": "Deux cases d'une même unité ont les deux mêmes candidats. Ces deux chiffres y vont forcément : on peut les retirer du reste de l'unité."
+    },
+    "hiddenPair": {
+      "title": "Paire cachée",
+      "explain_row": "Dans la ligne {{unit}}, {{digits}} ne peuvent aller que dans {{cells}}. Tous les autres candidats peuvent être retirés de ces cases.",
+      "explain_col": "Dans la colonne {{unit}}, {{digits}} ne peuvent aller que dans {{cells}}. Tous les autres candidats peuvent être retirés de ces cases.",
+      "explain_box": "Dans le bloc {{unit}}, {{digits}} ne peuvent aller que dans {{cells}}. Tous les autres candidats peuvent être retirés de ces cases.",
+      "summary": "Deux chiffres ne peuvent aller que dans les deux mêmes cases d'une unité. Ces cases perdent tous leurs autres candidats."
+    },
+    "nakedTriple": {
+      "title": "Triplet nu",
+      "explain_row": "{{cells}} ne peuvent contenir que {{digits}}. Ces chiffres peuvent être retirés des autres cases de la ligne {{unit}}.",
+      "explain_col": "{{cells}} ne peuvent contenir que {{digits}}. Ces chiffres peuvent être retirés des autres cases de la colonne {{unit}}.",
+      "explain_box": "{{cells}} ne peuvent contenir que {{digits}}. Ces chiffres peuvent être retirés des autres cases du bloc {{unit}}.",
+      "summary": "Trois cases d'une unité n'utilisent que trois chiffres à elles trois. Ces chiffres peuvent être retirés du reste de l'unité."
+    },
+    "hiddenTriple": {
+      "title": "Triplet caché",
+      "explain_row": "Dans la ligne {{unit}}, {{digits}} ne peuvent aller que dans {{cells}}. Tous les autres candidats peuvent être retirés de ces cases.",
+      "explain_col": "Dans la colonne {{unit}}, {{digits}} ne peuvent aller que dans {{cells}}. Tous les autres candidats peuvent être retirés de ces cases.",
+      "explain_box": "Dans le bloc {{unit}}, {{digits}} ne peuvent aller que dans {{cells}}. Tous les autres candidats peuvent être retirés de ces cases.",
+      "summary": "Trois chiffres ne peuvent aller que dans les trois mêmes cases d'une unité. Ces cases perdent tous leurs autres candidats."
+    },
+    "xWing": {
+      "title": "X-Wing",
+      "explain_row": "Dans les lignes {{lines}}, le {{digit}} ne peut être que dans les colonnes {{crossLines}}. On peut donc retirer le {{digit}} du reste de ces colonnes.",
+      "explain_col": "Dans les colonnes {{lines}}, le {{digit}} ne peut être que dans les lignes {{crossLines}}. On peut donc retirer le {{digit}} du reste de ces lignes.",
+      "summary": "Dans deux lignes, un chiffre ne peut aller que dans les deux mêmes colonnes. Il occupe deux coins opposés : on peut le retirer du reste de ces colonnes."
+    },
+    "xyWing": {
+      "title": "XY-Wing",
+      "explain": "Quel que soit celui de ses deux chiffres que prend {{pivot}}, l'une des ailes {{wings}} doit valoir {{digit}}. Toute case qui voit les deux ailes ne peut donc pas être un {{digit}}.",
+      "summary": "Une case pivot {X,Y} voit deux ailes {X,Z} et {Y,Z}. L'une des ailes vaut Z : toute case qui voit les deux ailes ne peut pas être Z."
+    },
+    "mistake": {
+      "title": "Chiffre incorrect",
+      "explain": "{{cell}} contient {{digit}}, ce qui est incorrect. Appliquez pour l'effacer."
+    },
+    "badNotes": {
+      "title": "Vérifiez vos notes",
+      "explain": "Les notes de {{cell}} ne contiennent pas le bon chiffre. Appliquez pour les corriger."
+    },
+    "none": {
+      "title": "Aucun indice disponible",
+      "explain": "Aucune technique de la liste ne s'applique ici. Appliquez pour révéler une case."
+    }
+  },
+  "announce": {
+    "mistake": "Incorrect. Erreurs : {{value}} sur {{max}}.",
+    "won": "Grille résolue !",
+    "lost": "Partie terminée.",
+    "placed": "{{digit}} placé en {{cell}}"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "back": "Retour à l'accueil"
+  },
+  "offline": {
+    "message": "Vous êtes hors ligne. Tout fonctionne quand même."
+  },
+  "update": {
+    "available": "Une nouvelle version est disponible.",
+    "reload": "Recharger",
+    "later": "Plus tard",
+    "offlineReady": "Prêt à jouer hors ligne."
+  },
+  "footer": {
+    "label": "Liens du site",
+    "play": "Jouer",
+    "learn": "Apprendre"
+  },
+  "seo": {
+    "home": {
+      "title": "Sudoku Master : Sudoku gratuit en ligne, même hors ligne",
+      "description": "Jouez au Sudoku gratuitement dans votre navigateur : 5 niveaux de difficulté, un défi quotidien et des indices qui expliquent la logique. Fonctionne hors ligne."
+    },
+    "daily": {
+      "title": "Sudoku du jour | Sudoku Master",
+      "description": "Une nouvelle grille de Sudoku gratuite chaque jour. Entretenez votre série et gagnez un badge pour chaque mois complété."
+    },
+    "dailyPlay": {
+      "title": "Sudoku du jour, {{date}} | Sudoku Master"
+    },
+    "stats": {
+      "title": "Vos statistiques | Sudoku Master",
+      "description": "Parties jouées, taux de réussite et meilleurs temps pour chaque niveau de Sudoku."
+    },
+    "howTo": {
+      "title": "Comment jouer au Sudoku : règles et techniques | Sudoku Master",
+      "description": "Apprenez les règles du Sudoku et les techniques derrière chaque indice : singletons, paires, triplets, X-Wing et XY-Wing."
+    },
+    "notFound": {
+      "title": "Page introuvable | Sudoku Master"
+    }
+  },
+  "landing": {
+    "easy": {
+      "title": "Sudoku facile : jouer gratuitement en ligne | Sudoku Master",
+      "heading": "Sudoku facile",
+      "description": "Grilles de Sudoku faciles et gratuites, résolubles avec les singletons seuls. Idéal pour débuter. Des indices expliquent chaque étape.",
+      "intro": "Les grilles faciles commencent avec au moins 36 chiffres et se résolvent avec les seuls singletons : trouvez la seule case où un chiffre peut aller. Parfait pour apprendre ou pour une partie rapide et détendue."
+    },
+    "medium": {
+      "title": "Sudoku moyen : jouer gratuitement en ligne | Sudoku Master",
+      "heading": "Sudoku moyen",
+      "description": "Grilles de Sudoku moyennes et gratuites avec 30 à 35 chiffres donnés. Entraînez-vous aux paires pointantes et à la réduction bloc/ligne.",
+      "intro": "Les grilles moyennes comportent 30 à 35 chiffres donnés. En plus des singletons, il faut utiliser les intersections : quand un chiffre est limité à une ligne ou une colonne dans un bloc, on peut le retirer du reste de cette ligne, et inversement."
+    },
+    "hard": {
+      "title": "Sudoku difficile : jouer gratuitement en ligne | Sudoku Master",
+      "heading": "Sudoku difficile",
+      "description": "Grilles de Sudoku difficiles et gratuites avec 28 à 31 chiffres donnés. Maîtrisez les paires et triplets nus et cachés.",
+      "intro": "Les grilles difficiles comportent 28 à 31 chiffres donnés et demandent des sous-ensembles : paires et triplets nus ou cachés, qui permettent d'éliminer des candidats dans les cases voisines."
+    },
+    "expert": {
+      "title": "Sudoku expert : jouer gratuitement en ligne | Sudoku Master",
+      "heading": "Sudoku expert",
+      "description": "Grilles de Sudoku expert gratuites qui demandent X-Wing et XY-Wing. Chaque indice explique la figure. Fonctionne hors ligne.",
+      "intro": "Les grilles expert comportent 24 à 29 chiffres donnés et ne peuvent pas être terminées sans figures avancées comme le X-Wing et le XY-Wing."
+    },
+    "master": {
+      "title": "Sudoku maître : les grilles les plus difficiles | Sudoku Master",
+      "heading": "Sudoku maître",
+      "description": "Nos grilles de Sudoku gratuites les plus difficiles : 25 chiffres donnés ou moins, résolubles par la logique pure.",
+      "intro": "Les grilles maître comportent 25 chiffres donnés ou moins et combinent toutes les techniques, X-Wing et XY-Wing compris. Toujours résolubles par la logique seule : un vrai défi pour les joueurs confirmés."
+    }
+  },
+  "howTo": {
+    "title": "Comment jouer au Sudoku",
+    "intro": "Le Sudoku se joue sur une grille de 9×9 cases divisée en neuf blocs de 3×3. Certaines cases sont déjà remplies. Le but est de remplir toutes les cases vides.",
+    "rulesTitle": "Les règles",
+    "rules": {
+      "row": "Chaque ligne doit contenir les chiffres de 1 à 9 une seule fois.",
+      "col": "Chaque colonne doit contenir les chiffres de 1 à 9 une seule fois.",
+      "box": "Chaque bloc de 3×3 doit contenir les chiffres de 1 à 9 une seule fois.",
+      "unique": "Chaque grille a une seule solution, que l'on peut toujours trouver par la logique, sans deviner."
+    },
+    "controlsTitle": "Jouer",
+    "controls": {
+      "place": "Touchez une case, puis un chiffre, pour le placer.",
+      "notes": "Activez les Notes pour écrire des candidats dans une case.",
+      "hint": "Indice montre la prochaine étape logique et l'explique. Appuyez sur Appliquer pour l'utiliser.",
+      "mistakes": "Un mauvais chiffre compte comme une erreur. Après 3 erreurs, la partie est terminée (désactivable dans les Paramètres)."
+    },
+    "keyboardTitle": "Raccourcis clavier",
+    "keys": {
+      "arrows": {
+        "key": "Flèches",
+        "action": "Se déplacer entre les cases"
+      },
+      "digits": {
+        "key": "1 – 9",
+        "action": "Placer ou noter un chiffre"
+      },
+      "erase": {
+        "key": "Retour arrière / Suppr",
+        "action": "Effacer"
+      },
+      "notes": {
+        "key": "N",
+        "action": "Activer ou désactiver les notes"
+      },
+      "undo": {
+        "key": "Ctrl + Z",
+        "action": "Annuler"
+      },
+      "redo": {
+        "key": "Ctrl + Maj + Z / Ctrl + Y",
+        "action": "Rétablir"
+      },
+      "pause": {
+        "key": "Espace",
+        "action": "Mettre en pause ou reprendre"
+      }
+    },
+    "techniquesTitle": "Techniques de résolution",
+    "techniquesIntro": "Voici les techniques utilisées par les indices, de la plus simple à la plus difficile. Chaque niveau demande aussi celles d'avant.",
+    "usedFrom": "Nécessaire dès le niveau {{difficulty}}",
+    "cta": "Commencer à jouer"
+  }
+}
