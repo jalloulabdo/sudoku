@@ -1,4 +1,4 @@
-import { BarChart3, CalendarDays, CircleUserRound, Settings } from 'lucide-react';
+import { CalendarDays, CircleUserRound, Settings, Trophy } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink } from 'react-router-dom';
 import { useLocalePath } from '../hooks/useLocaleRoute';
@@ -30,9 +30,9 @@ export function Header() {
             <CalendarDays className="size-5" aria-hidden="true" />
             <span className="hidden md:inline">{t('nav.daily')}</span>
           </NavLink>
-          <NavLink to={path('/stats')} className={navItem} aria-label={t('nav.stats')}>
-            <BarChart3 className="size-5" aria-hidden="true" />
-            <span className="hidden md:inline">{t('nav.stats')}</span>
+          <NavLink to={path('/leaderboard')} className={navItem} aria-label={t('nav.leaderboard')}>
+            <Trophy className="size-5" aria-hidden="true" />
+            <span className="hidden md:inline">{t('nav.leaderboard')}</span>
           </NavLink>
         </nav>
         <LanguageSwitcher />

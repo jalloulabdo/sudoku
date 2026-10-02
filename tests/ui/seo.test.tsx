@@ -81,9 +81,10 @@ describe('accessibility', () => {
 describe('sitemap', () => {
   it('lists every indexable page in every language with alternates', () => {
     const xml = sitemapXml();
-    expect(xml.match(/<loc>/g)).toHaveLength(3 * 8); // 9 pages per language minus stats
+    expect(xml.match(/<loc>/g)).toHaveLength(3 * 9); // 10 pages per language minus stats
     expect(xml).toContain('<loc>https://sudoku-master.example/ar/how-to-play</loc>');
     expect(xml).not.toContain('/stats</loc>');
-    expect(prerenderUrls()).toHaveLength(1 + 3 * 9);
+    expect(prerenderUrls()).toHaveLength(1 + 3 * 10);
+    expect(xml).toContain('<loc>https://sudoku-master.example/fr/leaderboard</loc>');
   });
 });

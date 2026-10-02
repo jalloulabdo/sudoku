@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
-import { resolve } from 'node:path';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -7,6 +8,31 @@ import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 const SSR_ENTRY = resolve('dist-ssr/entry-server.js');
+const DAILY_INDEX = resolve('data/daily-index.json');
+const DAILY_WINDOW = { past: 3, future: 120 };
+
+/**
+ * Fingerprints (SHA-256 of the givens) of the official daily puzzles, which the API uses to
+ * check that a daily score is for the real puzzle. Generation takes ~0.2 s per day, so results
+ * are cached in data/daily-index.json (committed) and only new days are computed.
+ */
+function updateDailyIndex(ssr: { dailyGivens(key: string): string; addDays(key: string, n: number): string; dateKey(d?: Date): string }): string {
+  const index: Record<string, string> = existsSync(DAILY_INDEX) ? JSON.parse(readFileSync(DAILY_INDEX, 'utf8')) : {};
+  const today = ssr.dateKey(new Date());
+  let added = 0;
+  for (let i = -DAILY_WINDOW.past; i <= DAILY_WINDOW.future; i++) {
+    const key = ssr.addDays(today, i);
+    if (index[key]) continue;
+    index[key] = createHash('sha256').update(ssr.dailyGivens(key)).digest('hex');
+    added++;
+  }
+  const sorted = Object.fromEntries(Object.entries(index).sort(([a], [b]) => a.localeCompare(b)));
+  if (added) {
+    mkdirSync(dirname(DAILY_INDEX), { recursive: true });
+    writeFileSync(DAILY_INDEX, JSON.stringify(sorted, null, 1) + '\n');
+  }
+  return JSON.stringify(sorted);
+}
 
 /**
  * Cloudflare Pages `_headers`: security headers on every response and long caching for
@@ -93,6 +119,7 @@ function prerender(): Plugin {
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: ssr.sitemapXml() });
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: ssr.robotsTxt() });
       this.emitFile({ type: 'asset', fileName: '_headers', source: cloudflareHeaders(template) });
+      this.emitFile({ type: 'asset', fileName: 'daily-index.json', source: updateDailyIndex(ssr) });
     },
   };
 }

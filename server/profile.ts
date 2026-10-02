@@ -38,6 +38,8 @@ export async function deleteMe(ctx: Ctx): Promise<Response> {
   const user = await requireUser(ctx);
   const db = ctx.env.DB;
   await db.batch([
+    db.prepare('DELETE FROM scores WHERE user_id = ?').bind(user.id),
+    db.prepare('DELETE FROM game_tickets WHERE user_id = ?').bind(user.id),
     db.prepare('DELETE FROM sessions WHERE user_id = ?').bind(user.id),
     db.prepare('DELETE FROM login_tokens WHERE email = ?').bind(user.email),
     db.prepare('DELETE FROM users WHERE id = ?').bind(user.id),

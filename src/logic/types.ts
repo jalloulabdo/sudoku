@@ -46,6 +46,8 @@ export interface GameState {
   hintsUsed: number;
   /** The one "second chance" after hitting the mistake limit has been used. */
   secondChanceUsed: boolean;
+  /** Server ticket for a ranked game (signed in and online at the start), else null. */
+  ticketId: string | null;
 }
 
 export type TechniqueId =

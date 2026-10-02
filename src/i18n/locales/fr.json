@@ -11,7 +11,8 @@
     "language": "Langue",
     "main": "Navigation principale",
     "howTo": "Comment jouer",
-    "account": "Compte"
+    "account": "Compte",
+    "leaderboard": "Classement"
   },
   "common": {
     "close": "Fermer",
@@ -271,6 +272,10 @@
     },
     "profile": {
       "title": "Votre profil | Sudoku Master"
+    },
+    "leaderboard": {
+      "title": "Classement Sudoku : les meilleurs joueurs | Sudoku Master",
+      "description": "Les meilleurs joueurs de Sudoku Master : classements général et hebdomadaire, et classement du défi du jour. Connectez-vous pour gagner des points."
     }
   },
   "landing": {
@@ -396,5 +401,57 @@
       "network": "Pas de connexion. Vérifiez votre accès à Internet et réessayez.",
       "unknown": "Une erreur s'est produite. Veuillez réessayer."
     }
+  },
+  "score": {
+    "points_one": "{{count}} point",
+    "points_many": "{{count}} de points",
+    "points_other": "{{count}} points",
+    "earned": "+{{points}} points",
+    "base": "Base ({{difficulty}})",
+    "timeBonus": "Bonus de temps",
+    "penalty": "Erreurs et indices",
+    "dailyRank": "Défi du jour : {{rank}}e",
+    "submitting": "Envoi de votre score…",
+    "queued": "Vous êtes hors ligne. Votre score sera envoyé dès votre retour en ligne.",
+    "signIn": "Connectez-vous pour gagner des points et apparaître au classement.",
+    "signInLink": "Se connecter",
+    "startedOffline": "Cette partie a commencé hors ligne, elle n'est donc pas classée.",
+    "alreadyScored": "Vous avez déjà marqué des points sur cette grille.",
+    "notRanked": "Cette partie n'est pas classée.",
+    "rejected": "Ce résultat n'a pas pu être vérifié, il n'est donc pas classé.",
+    "viewLeaderboard": "Voir le classement"
+  },
+  "leaderboard": {
+    "title": "Classement",
+    "intro": "Gagnez des points pour chaque grille résolue en étant connecté. Les grilles difficiles et les temps rapides rapportent davantage.",
+    "tabs": {
+      "label": "Période du classement",
+      "all": "Général",
+      "week": "Cette semaine",
+      "daily": "Défi du jour"
+    },
+    "rank": "Rang",
+    "player": "Joueur",
+    "points": "Points",
+    "games": "Parties",
+    "time": "Temps",
+    "you": "Vous",
+    "empty": "Aucun score pour le moment. Soyez le premier !",
+    "offline": "Vous êtes hors ligne. Le classement nécessite une connexion Internet.",
+    "error": "Le classement n'a pas pu être chargé.",
+    "retry": "Réessayer",
+    "signIn": "Connectez-vous pour apparaître au classement.",
+    "chooseUsername": "Choisissez un nom d'utilisateur sur votre profil pour apparaître au classement.",
+    "howPointsTitle": "Comment sont calculés les points",
+    "howPointsText": "Chaque grille résolue rapporte ses points de base, plus jusqu'à 50 % de bonus si vous la résolvez plus vite que le temps cible. Chaque erreur coûte 10 % de la base et chaque indice 15 %, mais une grille résolue vaut toujours au moins 10 %. Chaque grille ne compte qu'une fois.",
+    "basePoints": "Points de base",
+    "targetTime": "Temps cible"
+  },
+  "profile": {
+    "scoresTitle": "Vos scores",
+    "totalPoints": "Total des points",
+    "gamesScored": "Parties classées",
+    "allTimeRank": "Rang général",
+    "noScores": "Résolvez une grille en étant connecté pour gagner vos premiers points."
   }
 }

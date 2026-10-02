@@ -26,6 +26,11 @@ export function Footer() {
                 {t('nav.daily')}
               </Link>
             </li>
+            <li>
+              <Link to={path('/leaderboard')} className={link}>
+                {t('nav.leaderboard')}
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

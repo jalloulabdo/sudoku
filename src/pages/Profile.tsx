@@ -1,11 +1,11 @@
 import { LogOut, UserRound } from 'lucide-react';
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { api, errorKey } from '../api/client';
 import { Modal, ModalButton } from '../components/modals/Modal';
 import { useLocale, useLocalePath } from '../hooks/useLocaleRoute';
-import { formatDate } from '../i18n/format';
+import { formatDate, formatNumber } from '../i18n/format';
 import { useSeo } from '../seo/useSeo';
 import { accountStore, type PublicUser } from '../store/accountStore';
 import { useAccount } from '../store/hooks';
@@ -66,6 +66,56 @@ function UsernameForm({ user }: { user: PublicUser }) {
   );
 }
 
+interface MyScores {
+  points: number;
+  games: number;
+  rank: number | null;
+}
+
+function ScoresCard() {
+  const { t } = useTranslation();
+  const locale = useLocale();
+  const path = useLocalePath();
+  const [scores, setScores] = useState<MyScores | null>(null);
+  useEffect(() => {
+    api<MyScores>('/api/me/scores').then(setScores, () => {});
+  }, []);
+  if (!scores) return null;
+
+  const items: [string, string][] = [
+    [t('profile.totalPoints'), formatNumber(scores.points, locale)],
+    [t('profile.gamesScored'), formatNumber(scores.games, locale)],
+    [t('profile.allTimeRank'), scores.rank === null ? t('stats.none') : formatNumber(scores.rank, locale)],
+  ];
+  return (
+    <section aria-labelledby="my-scores" className="rounded-2xl border border-line bg-surface p-5">
+      <h2 id="my-scores" className="font-semibold">
+        {t('profile.scoresTitle')}
+      </h2>
+      {scores.games === 0 ? (
+        <p className="mt-2 text-sm text-muted">{t('profile.noScores')}</p>
+      ) : (
+        <dl className="mt-3 grid grid-cols-3 gap-2 text-center">
+          {items.map(([label, value]) => (
+            <div key={label} className="rounded-xl bg-surface-2 p-3">
+              <dt className="text-xs text-muted">{label}</dt>
+              <dd className="mt-1 text-lg font-semibold tabular-nums">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      <div className="mt-3 flex flex-wrap gap-x-4 text-sm">
+        <Link to={path('/leaderboard')} className="inline-flex min-h-11 items-center font-medium text-accent underline">
+          {t('score.viewLeaderboard')}
+        </Link>
+        <Link to={path('/stats')} className="inline-flex min-h-11 items-center font-medium text-accent underline">
+          {t('nav.stats')}
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 export function ProfilePage() {
   const { t } = useTranslation();
   const locale = useLocale();
@@ -106,6 +156,8 @@ export function ProfilePage() {
       <section className="rounded-2xl border border-line bg-surface p-5">
         <UsernameForm user={user} />
       </section>
+
+      <ScoresCard />
 
       <div className="flex flex-wrap gap-2">
         <button

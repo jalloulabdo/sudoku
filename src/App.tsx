@@ -131,6 +131,7 @@ export const routes: RouteObject[] = [
           { path: 'daily/:date', element: <DailyPlayPage /> },
           { path: 'stats', lazy: async () => ({ Component: (await import('./pages/Stats')).StatsPage }) },
           { path: 'how-to-play', lazy: async () => ({ Component: (await import('./pages/HowToPlay')).HowToPlayPage }) },
+          { path: 'leaderboard', lazy: async () => ({ Component: (await import('./pages/Leaderboard')).LeaderboardPage }) },
           { path: 'login', lazy: async () => ({ Component: (await import('./pages/Login')).LoginPage }) },
           { path: 'auth/verify', lazy: async () => ({ Component: (await import('./pages/AuthVerify')).AuthVerifyPage }) },
           { path: 'profile', lazy: async () => ({ Component: (await import('./pages/Profile')).ProfilePage }) },

@@ -33,6 +33,8 @@ export interface GameStore {
   tick(deltaMs: number): void;
   /** After losing: take back the losing move and allow one more mistake. Once per game. */
   secondChance(): void;
+  /** Attaches a server ticket, if the game is still the one it was issued for. */
+  setTicket(puzzleId: string, ticketId: string): void;
 }
 
 // ---------------------------------------------------------------------------
@@ -55,6 +57,7 @@ function freshGame(puzzle: Puzzle): GameState {
     status: 'playing',
     hintsUsed: 0,
     secondChanceUsed: false,
+    ticketId: null,
   };
 }
 
@@ -210,7 +213,13 @@ export const gameStore = createStore<GameStore>()((set, get) => {
 
     restart: () => {
       const g = get().game;
-      if (g) set({ game: freshGame(g.puzzle), activeHint: null });
+      // Same puzzle, so the same ranked ticket (the server only checks the final result).
+      if (g) set({ game: { ...freshGame(g.puzzle), ticketId: g.ticketId }, activeHint: null });
+    },
+
+    setTicket: (puzzleId, ticketId) => {
+      const g = get().game;
+      if (g?.puzzle.id === puzzleId) set({ game: { ...g, ticketId } });
     },
 
     restore: (game) => set({ game, activeHint: null }),
@@ -329,5 +338,6 @@ export function validateGame(data: unknown): GameState | null {
     selected: typeof data.selected === 'number' ? data.selected : null,
     hintsUsed: typeof data.hintsUsed === 'number' ? data.hintsUsed : 0,
     secondChanceUsed: data.secondChanceUsed === true,
+    ticketId: typeof data.ticketId === 'string' ? data.ticketId : null,
   };
 }

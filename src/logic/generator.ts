@@ -80,6 +80,18 @@ export function ratePuzzle(givens: readonly (CellValue | number)[]): {
   return { difficulty, givens: n, logic };
 }
 
+/**
+ * Whether a puzzle fits a difficulty's profile. Profiles overlap at the edges (e.g. a 25-given
+ * expert puzzle also fits master), so check the claimed difficulty rather than ratePuzzle()'s pick.
+ */
+export function matchesDifficulty(givens: readonly (CellValue | number)[], difficulty: Difficulty): boolean {
+  const p = DIFFICULTY_PROFILES[difficulty];
+  const n = countGivens(givens);
+  if (n < p.minGivens || n > p.maxGivens) return false;
+  const logic = solveLogically(givens.map((v) => v ?? 0), p.maxLevel);
+  return logic.solved && logic.hardestLevel >= p.minLevel;
+}
+
 /** Deterministic: the same (difficulty, seed) always produces the same puzzle. */
 export function generatePuzzle(difficulty: Difficulty, seed: number, id = `${difficulty}-${seed}`): Puzzle {
   const rng = mulberry32(seed);

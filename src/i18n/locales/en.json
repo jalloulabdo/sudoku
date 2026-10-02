@@ -11,7 +11,8 @@
     "language": "Language",
     "main": "Main navigation",
     "howTo": "How to play",
-    "account": "Account"
+    "account": "Account",
+    "leaderboard": "Leaderboard"
   },
   "common": {
     "close": "Close",
@@ -270,6 +271,10 @@
     },
     "profile": {
       "title": "Your profile | Sudoku Master"
+    },
+    "leaderboard": {
+      "title": "Sudoku Leaderboard: Top Players | Sudoku Master",
+      "description": "The best Sudoku Master players: all-time and weekly rankings, and the daily challenge leaderboard. Sign in to earn points."
     }
   },
   "landing": {
@@ -395,5 +400,56 @@
       "network": "No connection. Check your internet and try again.",
       "unknown": "Something went wrong. Please try again."
     }
+  },
+  "score": {
+    "points_one": "{{count}} point",
+    "points_other": "{{count}} points",
+    "earned": "+{{points}} points",
+    "base": "Base ({{difficulty}})",
+    "timeBonus": "Time bonus",
+    "penalty": "Mistakes and hints",
+    "dailyRank": "Today's daily challenge: #{{rank}}",
+    "submitting": "Submitting your score…",
+    "queued": "You're offline. Your score will be sent when you're back online.",
+    "signIn": "Sign in to earn points and appear on the leaderboard.",
+    "signInLink": "Sign in",
+    "startedOffline": "This game started while offline, so it isn't ranked.",
+    "alreadyScored": "You've already scored this puzzle.",
+    "notRanked": "This game isn't ranked.",
+    "rejected": "This result couldn't be verified, so it isn't ranked.",
+    "viewLeaderboard": "View leaderboard"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "intro": "Earn points for every puzzle you solve while signed in. Harder puzzles and faster times score more.",
+    "tabs": {
+      "label": "Leaderboard period",
+      "all": "All time",
+      "week": "This week",
+      "daily": "Today's daily"
+    },
+    "rank": "Rank",
+    "player": "Player",
+    "points": "Points",
+    "games": "Games",
+    "time": "Time",
+    "you": "You",
+    "empty": "No scores yet. Be the first!",
+    "offline": "You're offline. The leaderboard needs an internet connection.",
+    "error": "The leaderboard couldn't be loaded.",
+    "retry": "Try again",
+    "signIn": "Sign in to appear on the leaderboard.",
+    "chooseUsername": "Choose a username on your profile to appear on the leaderboard.",
+    "howPointsTitle": "How points work",
+    "howPointsText": "Each solved puzzle earns its base points, plus up to 50% more for solving it faster than the target time. Every mistake costs 10% of the base and every hint 15%, but a solved puzzle is always worth at least 10%. Each puzzle scores once.",
+    "basePoints": "Base points",
+    "targetTime": "Target time"
+  },
+  "profile": {
+    "scoresTitle": "Your scores",
+    "totalPoints": "Total points",
+    "gamesScored": "Ranked games",
+    "allTimeRank": "All-time rank",
+    "noScores": "Solve a puzzle while signed in to earn your first points."
   }
 }

@@ -3,6 +3,7 @@ import { createMailer } from './emails';
 import type { Ctx, Env } from './env';
 import { HttpError, assertSameOrigin, errorResponse, json } from './http';
 import { deleteMe, getMe, updateMe } from './profile';
+import { finishGame, leaderboard, myScores, startGame } from './scores';
 
 type Handler = (ctx: Ctx) => Promise<Response>;
 
@@ -12,6 +13,10 @@ const ROUTES: Record<string, Partial<Record<string, Handler>>> = {
   '/api/auth/verify': { POST: verifyLink },
   '/api/auth/logout': { POST: logout },
   '/api/me': { GET: getMe, PATCH: updateMe, DELETE: deleteMe },
+  '/api/me/scores': { GET: myScores },
+  '/api/games/start': { POST: startGame },
+  '/api/games/finish': { POST: finishGame },
+  '/api/leaderboard': { GET: leaderboard },
 };
 
 export async function handleApi(request: Request, env: Env, overrides: Partial<Pick<Ctx, 'mail' | 'now'>> = {}): Promise<Response> {

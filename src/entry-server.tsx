@@ -5,6 +5,9 @@ import { routes } from './App';
 import { applyLocale, localeDir } from './i18n';
 import { DEFAULT_LOCALE, isLocale } from './i18n/locales';
 import { headToHtml, serverHead } from './seo/head';
+import { dailyRequest } from './logic/daily';
+import { generatePuzzle } from './logic/generator';
+import { gridToString } from './logic/points';
 
 export { prerenderUrls, robotsTxt, sitemapXml } from './seo/site';
 
@@ -30,3 +33,10 @@ export async function render(url: string): Promise<RenderResult> {
   if (!serverHead.current) throw new Error(`Page ${url} did not call useSeo()`);
   return { html, head: headToHtml(serverHead.current), lang, dir: localeDir(lang) };
 }
+
+/** The givens of a day's official daily puzzle, as the API's 81-character string (used to build daily-index.json). */
+export function dailyGivens(key: string): string {
+  const { difficulty, seed, id } = dailyRequest(key);
+  return gridToString(generatePuzzle(difficulty, seed, id).givens);
+}
+export { addDays, dateKey } from './logic/daily';

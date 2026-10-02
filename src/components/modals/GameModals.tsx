@@ -9,6 +9,7 @@ import { gameStore } from '../../store/gameStore';
 import { useGame, useSettings, useUi } from '../../store/hooks';
 import { startNewGame } from '../../store/puzzleSource';
 import { uiStore } from '../../store/uiStore';
+import { ScoreSummary } from '../ScoreSummary';
 import { Modal, ModalButton } from './Modal';
 
 /** Starts a new puzzle of `difficulty` and moves to its page. */
@@ -106,6 +107,9 @@ export function WinModal() {
           </div>
         ))}
       </dl>
+      <div className="mt-4">
+        <ScoreSummary puzzleId={id} difficulty={difficulty} />
+      </div>
       <div className="mt-5 flex flex-col gap-2">
         {daily ? (
           <ModalButton

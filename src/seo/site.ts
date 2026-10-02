@@ -5,7 +5,7 @@ import { DIFFICULTIES } from '../logic/types';
 export const SITE_URL = ((import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://sudoku-master.example').replace(/\/$/, '');
 
 /** Pages under each language prefix ('' = the language's home page). */
-export const PAGE_PATHS = ['', ...DIFFICULTIES.map((d) => `/play/${d}`), '/daily', '/how-to-play', '/stats'];
+export const PAGE_PATHS = ['', ...DIFFICULTIES.map((d) => `/play/${d}`), '/daily', '/leaderboard', '/how-to-play', '/stats'];
 
 /** Pages kept out of search results (personal data, nothing to index). */
 export const NOINDEX_PATHS = new Set(['/stats']);

@@ -21,6 +21,8 @@ export async function api<T>(path: string, { method = 'GET', body }: { method?: 
   } catch {
     throw new ApiError(0, 'network');
   }
+  // Without the API (e.g. a plain static host) /api/* returns the HTML app shell: not an answer.
+  if (!res.headers.get('Content-Type')?.includes('application/json')) throw new ApiError(res.ok ? 503 : res.status, 'unavailable');
   const data = (await res.json().catch(() => ({}))) as { error?: string };
   if (!res.ok) throw new ApiError(res.status, data.error ?? 'unknown');
   return data as T;

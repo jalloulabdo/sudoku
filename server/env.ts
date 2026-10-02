@@ -11,6 +11,8 @@ export interface Env {
   EMAIL_FROM?: string;
   /** Cloudflare Turnstile secret. When set, sign-in requests must pass a Turnstile check. */
   TURNSTILE_SECRET?: string;
+  /** The site's static files (provided by Cloudflare Pages); used to read daily-index.json. */
+  ASSETS?: { fetch(input: Request | string): Promise<Response> };
 }
 
 /** Everything a handler needs; injectable for tests. */

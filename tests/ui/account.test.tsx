@@ -13,7 +13,7 @@ let replies: Record<string, Reply | ((init: RequestInit) => Reply)>;
 const fetchMock = vi.fn(async (input: RequestInfo | URL, init: RequestInit = {}) => {
   const key = `${init.method ?? 'GET'} ${String(input)}`;
   const r = replies[key];
-  if (!r) return new Response(JSON.stringify({ error: 'unauthenticated' }), { status: 401 });
+  if (!r) return new Response(JSON.stringify({ error: 'unauthenticated' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
   const { status = 200, body } = typeof r === 'function' ? r(init) : r;
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
 });
@@ -62,7 +62,8 @@ describe('sign in', () => {
     const router = renderAt('/en/auth/verify');
     await waitFor(() => expect(router.state.location.pathname).toBe('/en/profile'));
     expect(bodyOf(0)).toEqual({ token: 'abcdefghijklmnopqrstuvwxyz' });
-    expect(fetchMock).toHaveBeenCalledTimes(1); // single-use token sent once, even under StrictMode
+    // The single-use token is sent once, even under StrictMode.
+    expect(fetchMock.mock.calls.filter(([url]) => String(url) === '/api/auth/verify')).toHaveLength(1);
     expect(window.location.hash).toBe(''); // token removed from the address bar
     expect(accountStore.getState()).toMatchObject({ status: 'signedIn', user: USER });
     expect(await screen.findByText('Choose a username to appear on leaderboards and so your friends can find you.')).toBeTruthy();

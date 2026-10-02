@@ -7,6 +7,7 @@ import { isLocale } from './i18n/locales';
 import { accountStore } from './store/accountStore';
 import { initPersistence } from './store/persistence';
 import { prefetchSlowDifficulties } from './store/puzzleSource';
+import { initScoreSync } from './store/scoreSync';
 import './index.css';
 
 initPersistence();
@@ -43,5 +44,6 @@ void ready.then(() => {
     ),
   );
   prefetchSlowDifficulties();
-  void accountStore.getState().refresh();
+  // Check the session before syncing scores, so a game started right away can be ranked.
+  void accountStore.getState().refresh().finally(initScoreSync);
 });

@@ -16,7 +16,8 @@ const check = (name, ok, detail = '') => {
 };
 
 let log = '';
-const wrangler = spawn('npx', ['wrangler', 'pages', 'dev', '--port', String(PORT)], { stdio: ['ignore', 'pipe', 'pipe'] });
+// Own process group, so the whole tree (npx → wrangler → workerd) can be stopped at the end.
+const wrangler = spawn('npx', ['wrangler', 'pages', 'dev', '--port', String(PORT)], { stdio: ['ignore', 'pipe', 'pipe'], detached: true });
 wrangler.stdout.on('data', (d) => (log += d));
 wrangler.stderr.on('data', (d) => (log += d));
 
@@ -91,13 +92,41 @@ try {
   });
   check('cross-origin write refused', csrf.status === 403);
 
-  // 8. Sign out.
+  // 8. Play a ranked game: the server checks the puzzle and the result, then awards points.
+  await page.goto(`${BASE}/en/play/easy`);
+  await page.locator('[role="gridcell"]').first().waitFor();
+  const game = await waitFor(
+    () => page.evaluate(() => JSON.parse(localStorage.getItem('sudoku:game') ?? 'null')?.data).then((g) => (g?.ticketId ? g : null)),
+    10000,
+    'a ranked ticket',
+  );
+  check('ranked ticket issued for the new game', typeof game.ticketId === 'string');
+  const empty = game.cells.map((c, i) => (c.value === null ? i : -1)).filter((i) => i >= 0);
+  // The server rejects inhumanly fast solves (250 ms per empty cell), so play at a human pace.
+  await page.waitForTimeout(empty.length * 250 + 1500);
+  const cells = page.locator('[role="gridcell"]');
+  for (const i of empty) {
+    await cells.nth(i).click();
+    await page.keyboard.press(String(game.puzzle.solution[i]));
+  }
+  const win = page.getByRole('dialog', { name: 'Puzzle solved!' });
+  check('puzzle solved', await visible(win));
+  const earned = await win.getByText(/^\+\d+ points$/).textContent({ timeout: 10000 }).catch(() => null);
+  check('server awarded points', !!earned, earned ?? '');
+
+  await page.goto(`${BASE}/en/leaderboard`);
+  const myRow = page.locator('tr', { hasText: username });
+  check('player appears on the all-time leaderboard', await visible(myRow));
+  check('leaderboard row shows the same points', (await myRow.textContent())?.includes(earned?.match(/\d+/)?.[0] ?? '?') ?? false);
+
+  // 9. Sign out.
+  await page.goto(`${BASE}/fr/profile`);
   await page.getByRole('button', { name: 'Se déconnecter' }).click();
   await page.waitForURL(`${BASE}/fr`);
   const me = await page.evaluate(async () => (await fetch('/api/me')).status);
   check('signed out', me === 401);
 
-  // 9. Security headers from _headers.
+  // 10. Security headers from _headers.
   const res = await fetch(`${BASE}/en`);
   check(
     'security headers served',
@@ -110,7 +139,9 @@ try {
   check('run completed', false, e.message);
   console.log(log.slice(-2000));
 } finally {
-  wrangler.kill('SIGTERM');
+  try {
+    process.kill(-wrangler.pid, 'SIGTERM');
+  } catch {}
 }
 
 const failed = results.filter((r) => !r.ok).length;
