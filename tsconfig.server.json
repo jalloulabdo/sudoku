@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "types": ["@cloudflare/workers-types"],
+    "jsx": "react-jsx"
+  },
+  "include": ["server", "functions", "src/i18n/locales.ts"],
+  "exclude": []
+}

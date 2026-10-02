@@ -10,7 +10,8 @@
     "settings": "Settings",
     "language": "Language",
     "main": "Main navigation",
-    "howTo": "How to play"
+    "howTo": "How to play",
+    "account": "Account"
   },
   "common": {
     "close": "Close",
@@ -263,6 +264,12 @@
     },
     "notFound": {
       "title": "Page not found | Sudoku Master"
+    },
+    "login": {
+      "title": "Sign in | Sudoku Master"
+    },
+    "profile": {
+      "title": "Your profile | Sudoku Master"
     }
   },
   "landing": {
@@ -349,5 +356,44 @@
     "techniquesIntro": "These are the techniques the hint system uses, from easiest to hardest. Each difficulty level needs the ones before it.",
     "usedFrom": "Needed from {{difficulty}}",
     "cta": "Start playing"
+  },
+  "account": {
+    "signIn": "Sign in",
+    "signInTitle": "Sign in to Sudoku Master",
+    "signInText": "Enter your email and we'll send you a sign-in link. No password needed. Your account saves your scores and lets you play with friends.",
+    "email": "Email address",
+    "sendLink": "Send sign-in link",
+    "sending": "Sending…",
+    "sentTitle": "Check your inbox",
+    "sentText": "We sent a sign-in link to {{email}}. It works once and expires in 15 minutes.",
+    "useAnother": "Use another email",
+    "verifying": "Signing you in…",
+    "verifyFailed": "This sign-in link is invalid or has expired.",
+    "tryAgain": "Request a new link",
+    "profileTitle": "Your profile",
+    "username": "Username",
+    "usernameHelp": "3 to 20 letters, digits, _ . or -. Shown on leaderboards.",
+    "chooseUsername": "Choose a username to appear on leaderboards and so your friends can find you.",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "memberSince": "Member since {{date}}",
+    "signOut": "Sign out",
+    "deleteAccount": "Delete account",
+    "deleteTitle": "Delete your account?",
+    "deleteText": "Your account, scores and friends will be permanently deleted. Games saved on this device are kept.",
+    "deleteConfirm": "Delete my account",
+    "offline": "You're offline. Signing in needs an internet connection.",
+    "loading": "Loading…",
+    "errors": {
+      "invalid_email": "Please enter a valid email address.",
+      "rate_limited": "Too many attempts. Please wait a while and try again.",
+      "captcha_required": "Please complete the security check.",
+      "captcha_failed": "The security check failed. Please try again.",
+      "invalid_username": "Use 3 to 20 letters, digits, _ . or -.",
+      "username_taken": "This username is already taken.",
+      "network": "No connection. Check your internet and try again.",
+      "unknown": "Something went wrong. Please try again."
+    }
   }
 }

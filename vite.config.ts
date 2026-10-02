@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
@@ -6,6 +7,47 @@ import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 const SSR_ENTRY = resolve('dist-ssr/entry-server.js');
+
+/**
+ * Cloudflare Pages `_headers`: security headers on every response and long caching for
+ * hashed assets. The CSP allows the one inline script (the theme loader in index.html) by its
+ * hash, and Cloudflare Turnstile for the sign-in form.
+ */
+function cloudflareHeaders(html: string): string {
+  const inline = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(
+    (m) => `'sha256-${createHash('sha256').update(m[1]).digest('base64')}'`,
+  );
+  const csp = [
+    "default-src 'self'",
+    `script-src 'self' ${inline.join(' ')} https://challenges.cloudflare.com`,
+    "style-src 'self' 'unsafe-inline'", // inlined stylesheet + animation styles
+    "img-src 'self' data:",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "worker-src 'self'",
+    "manifest-src 'self'",
+    'frame-src https://challenges.cloudflare.com',
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "object-src 'none'",
+  ].join('; ');
+  return `/*
+  Content-Security-Policy: ${csp}
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/sw.js
+  Cache-Control: no-cache
+`;
+}
 
 /**
  * Renders every page (from the SSR build in dist-ssr/) into static HTML while the client
@@ -50,11 +92,14 @@ function prerender(): Plugin {
       }
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: ssr.sitemapXml() });
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: ssr.robotsTxt() });
+      this.emitFile({ type: 'asset', fileName: '_headers', source: cloudflareHeaders(template) });
     },
   };
 }
 
 export default defineConfig(({ isSsrBuild }) => ({
+  // `npm run dev` + `npm run dev:api`: the API runs in Wrangler (Pages Functions + local D1).
+  server: { proxy: { '/api': 'http://localhost:8788' } },
   plugins: [
     react(),
     tailwindcss(),

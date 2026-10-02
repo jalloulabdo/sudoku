@@ -1,7 +1,8 @@
-import { BarChart3, CalendarDays, Settings } from 'lucide-react';
+import { BarChart3, CalendarDays, CircleUserRound, Settings } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink } from 'react-router-dom';
 import { useLocalePath } from '../hooks/useLocaleRoute';
+import { useAccount } from '../store/hooks';
 import { uiStore } from '../store/uiStore';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
@@ -11,6 +12,7 @@ const navItem =
 export function Header() {
   const { t } = useTranslation();
   const path = useLocalePath();
+  const user = useAccount((s) => s.user);
   return (
     <header className="border-b border-line bg-surface">
       <div className="mx-auto flex h-14 max-w-5xl items-center gap-2 px-4">
@@ -34,6 +36,14 @@ export function Header() {
           </NavLink>
         </nav>
         <LanguageSwitcher />
+        <NavLink
+          to={path(user ? '/profile' : '/login')}
+          className={navItem}
+          aria-label={user ? (user.username ?? t('nav.account')) : t('account.signIn')}
+        >
+          <CircleUserRound className="size-5" aria-hidden="true" />
+          <span className="hidden max-w-28 truncate lg:inline">{user ? (user.username ?? t('nav.account')) : t('account.signIn')}</span>
+        </NavLink>
         <button
           type="button"
           onClick={() => uiStore.setState({ settingsOpen: true })}

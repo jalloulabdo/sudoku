@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { DEFAULT_LOCALE, isLocale, type Locale } from '../i18n/locales';
+import { api } from '../api/client';
+import { accountStore, type PublicUser } from '../store/accountStore';
 import { settingsStore } from '../store/settingsStore';
 
 export function useLocale(): Locale {
@@ -21,6 +23,12 @@ export function useSwitchLocale(): (next: Locale) => void {
   return useCallback(
     (next: Locale) => {
       settingsStore.getState().update({ language: next });
+      // Sign-in emails follow the site language (best effort; offline is fine).
+      if (accountStore.getState().status === 'signedIn') {
+        api<{ user: PublicUser }>('/api/me', { method: 'PATCH', body: { locale: next } })
+          .then(({ user }) => accountStore.getState().setUser(user))
+          .catch(() => {});
+      }
       const rest = location.pathname.replace(/^\/[^/]+/, '');
       navigate(`/${next}${rest}${location.search}`, { replace: true });
     },

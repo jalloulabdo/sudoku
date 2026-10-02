@@ -10,7 +10,8 @@
     "settings": "Paramètres",
     "language": "Langue",
     "main": "Navigation principale",
-    "howTo": "Comment jouer"
+    "howTo": "Comment jouer",
+    "account": "Compte"
   },
   "common": {
     "close": "Fermer",
@@ -264,6 +265,12 @@
     },
     "notFound": {
       "title": "Page introuvable | Sudoku Master"
+    },
+    "login": {
+      "title": "Connexion | Sudoku Master"
+    },
+    "profile": {
+      "title": "Votre profil | Sudoku Master"
     }
   },
   "landing": {
@@ -350,5 +357,44 @@
     "techniquesIntro": "Voici les techniques utilisées par les indices, de la plus simple à la plus difficile. Chaque niveau demande aussi celles d'avant.",
     "usedFrom": "Nécessaire dès le niveau {{difficulty}}",
     "cta": "Commencer à jouer"
+  },
+  "account": {
+    "signIn": "Se connecter",
+    "signInTitle": "Connexion à Sudoku Master",
+    "signInText": "Saisissez votre e-mail et nous vous enverrons un lien de connexion. Aucun mot de passe nécessaire. Votre compte enregistre vos scores et vous permet de jouer avec vos amis.",
+    "email": "Adresse e-mail",
+    "sendLink": "Envoyer le lien de connexion",
+    "sending": "Envoi…",
+    "sentTitle": "Consultez votre boîte de réception",
+    "sentText": "Nous avons envoyé un lien de connexion à {{email}}. Il ne fonctionne qu'une fois et expire dans 15 minutes.",
+    "useAnother": "Utiliser une autre adresse",
+    "verifying": "Connexion en cours…",
+    "verifyFailed": "Ce lien de connexion est invalide ou a expiré.",
+    "tryAgain": "Demander un nouveau lien",
+    "profileTitle": "Votre profil",
+    "username": "Nom d'utilisateur",
+    "usernameHelp": "De 3 à 20 lettres, chiffres, _ . ou -. Affiché dans les classements.",
+    "chooseUsername": "Choisissez un nom d'utilisateur pour apparaître dans les classements et être trouvé par vos amis.",
+    "save": "Enregistrer",
+    "saving": "Enregistrement…",
+    "saved": "Enregistré",
+    "memberSince": "Membre depuis le {{date}}",
+    "signOut": "Se déconnecter",
+    "deleteAccount": "Supprimer le compte",
+    "deleteTitle": "Supprimer votre compte ?",
+    "deleteText": "Votre compte, vos scores et vos amis seront définitivement supprimés. Les parties enregistrées sur cet appareil sont conservées.",
+    "deleteConfirm": "Supprimer mon compte",
+    "offline": "Vous êtes hors ligne. La connexion nécessite Internet.",
+    "loading": "Chargement…",
+    "errors": {
+      "invalid_email": "Veuillez saisir une adresse e-mail valide.",
+      "rate_limited": "Trop de tentatives. Patientez un moment puis réessayez.",
+      "captcha_required": "Veuillez effectuer la vérification de sécurité.",
+      "captcha_failed": "La vérification de sécurité a échoué. Veuillez réessayer.",
+      "invalid_username": "Utilisez de 3 à 20 lettres, chiffres, _ . ou -.",
+      "username_taken": "Ce nom d'utilisateur est déjà pris.",
+      "network": "Pas de connexion. Vérifiez votre accès à Internet et réessayez.",
+      "unknown": "Une erreur s'est produite. Veuillez réessayer."
+    }
   }
 }

@@ -4,3 +4,5 @@ coverage/
 *.log
 dist-ssr/
 lighthouse-reports/
+.dev.vars
+.wrangler/

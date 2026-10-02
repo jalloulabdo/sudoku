@@ -19,4 +19,4 @@ precacheAndRoute(self.__WB_MANIFEST, {
 cleanupOutdatedCaches();
 
 // Pages that aren't prerendered (e.g. /fr/daily/2026-09-30) get the app shell, which routes on the client.
-registerRoute(new NavigationRoute(createHandlerBoundToURL('index.html')));
+registerRoute(new NavigationRoute(createHandlerBoundToURL('index.html'), { denylist: [/^\/api\//] }));

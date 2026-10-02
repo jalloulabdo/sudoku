@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './App';
 import { applyLocale } from './i18n';
 import { isLocale } from './i18n/locales';
+import { accountStore } from './store/accountStore';
 import { initPersistence } from './store/persistence';
 import { prefetchSlowDifficulties } from './store/puzzleSource';
 import './index.css';
@@ -42,4 +43,5 @@ void ready.then(() => {
     ),
   );
   prefetchSlowDifficulties();
+  void accountStore.getState().refresh();
 });

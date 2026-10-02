@@ -80,8 +80,9 @@ describe('no hard-coded UI strings', () => {
     const offenders: string[] = [];
     for (const file of files) {
       const src = readFileSync(file, 'utf8');
-      // JSX text containing a letter (Latin or Arabic): after a tag, or between an {expression} and a tag.
-      const text = /(?<!=)>([^<>{}()=;[\]]*[A-Za-z؀-ۿ][^<>{}()=;[\]]*)(?=[<{])|}([^<>{}()=;[\]]*[A-Za-z؀-ۿ][^<>{}()=;[\]]*)</g;
+      // JSX text containing a letter (Latin or Arabic): after a tag, or between an {expression} and a
+      // closing tag (`</`), so TypeScript generics like api<{…}> are not mistaken for text.
+      const text = /(?<!=)>([^<>{}()=;[\]]*[A-Za-z؀-ۿ][^<>{}()=;[\]]*)(?=[<{])|}([^<>{}()=;[\]]*[A-Za-z؀-ۿ][^<>{}()=;[\]]*)(?=<\/)/g;
       for (const m of src.matchAll(text)) {
         const s = (m[1] ?? m[2]).trim();
         if (s) offenders.push(`${file}: text "${s}"`);
