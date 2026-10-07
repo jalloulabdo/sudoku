@@ -11,5 +11,5 @@ APP_ENV = "production"
 binding = "DB"
 database_name = "sudoku-master"
 # Replace with the id printed by `npx wrangler d1 create sudoku-master`.
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "e9955e5c-ac39-4afc-b289-56acc58e427e"
 migrations_dir = "migrations"
