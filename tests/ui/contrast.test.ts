@@ -38,6 +38,11 @@ const PAIRS: [string, string][] = [
   ['entry', 'cell-same'],
   ['error', 'cell-conflict'],
   ['accent-fg', 'accent'],
+  // Home page: white text on the brand gradient, and gradient text on the page background.
+  ['accent-fg', 'brand-a'],
+  ['accent-fg', 'brand-b'],
+  ['brand-text-a', 'bg'],
+  ['brand-text-b', 'bg'],
 ];
 
 describe('WCAG AA contrast', () => {

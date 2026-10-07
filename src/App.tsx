@@ -10,7 +10,6 @@ import { useLocalePath } from './hooks/useLocaleRoute';
 import { useTheme } from './hooks/useTheme';
 import { applyLocale, resolveLocale } from './i18n';
 import { LOCALES, isLocale } from './i18n/locales';
-import { HomePage } from './pages/Home';
 import { DailyPlayPage, PlayPage } from './pages/Play';
 import { useSeo } from './seo/useSeo';
 
@@ -125,7 +124,9 @@ export const routes: RouteObject[] = [
         path: '/:lang',
         element: <LocaleLayout />,
         children: [
-          { index: true, element: <HomePage /> },
+          // Lazy too: its HTML is prerendered (the headline paints before any JS), and keeping
+          // the hero scene and dashboard out of the main bundle keeps game pages fast.
+          { index: true, lazy: async () => ({ Component: (await import('./pages/Home')).HomePage }) },
           { path: 'play/:difficulty', element: <PlayPage /> },
           { path: 'daily', lazy: async () => ({ Component: (await import('./pages/Daily')).DailyPage }) },
           { path: 'daily/:date', element: <DailyPlayPage /> },

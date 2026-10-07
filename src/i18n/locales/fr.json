@@ -34,7 +34,115 @@
     "newGame": "Nouvelle partie",
     "dailyTitle": "Défi du jour",
     "dailyPlay": "Jouer la grille du jour",
-    "dailyDone": "La grille du jour est terminée. Revenez demain !"
+    "dailyDone": "La grille du jour est terminée. Revenez demain !",
+    "hero": {
+      "badge": "Gratuit · Hors ligne · Sans publicité",
+      "titleStart": "Entraînez votre cerveau,",
+      "titleHighlight": "une grille à la fois.",
+      "text": "Le Sudoku classique avec cinq niveaux de difficulté, un nouveau défi chaque jour et des indices qui expliquent la logique de chaque coup. Jouez immédiatement, même sans connexion.",
+      "play": "Jouer maintenant",
+      "resume": "Reprendre la partie",
+      "daily": "Défi du jour",
+      "facts": {
+        "levels": "niveaux de difficulté",
+        "techniques": "techniques de résolution",
+        "languages": "langues"
+      }
+    },
+    "dash": {
+      "title": "Votre tableau de bord",
+      "text": "Reprenez là où vous vous êtes arrêté et suivez votre progression.",
+      "continue": {
+        "title": "Continuer à jouer",
+        "empty": "Aucune partie en cours.",
+        "start": "Commencer une partie",
+        "resume": "Reprendre",
+        "complete": "terminé"
+      },
+      "daily": {
+        "title": "Défi du jour",
+        "streak": "Série en cours",
+        "done": "La grille du jour est terminée. À demain !",
+        "play": "Jouer la grille du jour",
+        "week": "7 derniers jours",
+        "dayDone": "{{day}} : terminé",
+        "dayMissed": "{{day}} : non joué"
+      },
+      "progress": {
+        "title": "Votre progression",
+        "solved": "Grilles résolues",
+        "winRate": "Taux de réussite",
+        "best": "Meilleur temps",
+        "view": "Toutes les statistiques"
+      },
+      "rank": {
+        "title": "Classement",
+        "points": "Points",
+        "rank": "Rang",
+        "signIn": "Connectez-vous pour gagner des points et grimper au classement.",
+        "signInButton": "Se connecter",
+        "view": "Voir le classement"
+      }
+    },
+    "levels": {
+      "title": "Choisissez votre défi",
+      "text": "De relaxant à diabolique : chaque grille a une seule solution, que l'on atteint par la seule logique.",
+      "play": "Jouer",
+      "meter": "Difficulté {{value}} sur 5",
+      "easy": "Uniquement des singletons. Idéal pour apprendre ou se détendre.",
+      "medium": "Ajoute les paires pointantes et la réduction bloc/ligne.",
+      "hard": "Les paires et triplets nus ou cachés entrent en jeu.",
+      "expert": "Demande des figures avancées comme le X-Wing et le XY-Wing.",
+      "master": "Le moins d’indices et toutes les techniques. Un vrai défi."
+    },
+    "features": {
+      "title": "Tout pour mieux jouer",
+      "text": "Pensé pour les joueurs qui veulent progresser, pas seulement remplir des cases.",
+      "hints": {
+        "title": "Des indices qui enseignent",
+        "text": "Chaque indice nomme la technique et explique pourquoi elle fonctionne : vous apprenez au lieu de deviner."
+      },
+      "offline": {
+        "title": "Fonctionne hors ligne",
+        "text": "Installez-le comme une application. Les grilles sont créées sur votre appareil, avec ou sans connexion."
+      },
+      "languages": {
+        "title": "Trois langues",
+        "text": "Anglais, français et arabe, avec une mise en page entièrement de droite à gauche en arabe."
+      },
+      "daily": {
+        "title": "Défi du jour",
+        "text": "Une nouvelle grille chaque jour. Construisez une série et gagnez un badge pour chaque mois complet."
+      },
+      "leaderboard": {
+        "title": "Classement",
+        "text": "Scores vérifiés, classements hebdomadaire et général, et une course sur chaque défi du jour."
+      },
+      "themes": {
+        "title": "Agréable pour les yeux",
+        "text": "Thèmes clair et sombre, surlignages lisibles et prise en charge complète du clavier."
+      }
+    },
+    "steps": {
+      "title": "Comment ça marche",
+      "pick": {
+        "title": "Choisissez un niveau",
+        "text": "Commencez en douceur ou attaquez directement une grille expert."
+      },
+      "solve": {
+        "title": "Résolvez par la logique",
+        "text": "Remplissez la grille pour que chaque ligne, colonne et bloc contienne 1 à 9 une seule fois."
+      },
+      "learn": {
+        "title": "Apprenez et progressez",
+        "text": "Les indices vous apprennent de nouvelles techniques, puis grimpez au classement."
+      }
+    },
+    "cta": {
+      "title": "Prêt pour votre prochaine grille ?",
+      "text": "Aucun compte nécessaire pour jouer. Connectez-vous quand vous voulez pour garder votre score.",
+      "button": "Commencer à jouer"
+    }
   },
   "game": {
     "mistakes": "Erreurs",

@@ -34,7 +34,115 @@
     "newGame": "New game",
     "dailyTitle": "Daily challenge",
     "dailyPlay": "Play today's puzzle",
-    "dailyDone": "Today's puzzle is done. Come back tomorrow!"
+    "dailyDone": "Today's puzzle is done. Come back tomorrow!",
+    "hero": {
+      "badge": "Free · Works offline · No ads",
+      "titleStart": "Train your brain,",
+      "titleHighlight": "one grid at a time.",
+      "text": "Classic Sudoku with five difficulty levels, a fresh daily challenge and hints that explain the logic behind every move. Play instantly, even without a connection.",
+      "play": "Play now",
+      "resume": "Resume game",
+      "daily": "Today's challenge",
+      "facts": {
+        "levels": "difficulty levels",
+        "techniques": "solving techniques",
+        "languages": "languages"
+      }
+    },
+    "dash": {
+      "title": "Your dashboard",
+      "text": "Pick up where you left off and keep an eye on your progress.",
+      "continue": {
+        "title": "Continue playing",
+        "empty": "No game in progress.",
+        "start": "Start a game",
+        "resume": "Resume",
+        "complete": "complete"
+      },
+      "daily": {
+        "title": "Daily challenge",
+        "streak": "Current streak",
+        "done": "Today's puzzle is done. See you tomorrow!",
+        "play": "Play today's puzzle",
+        "week": "Last 7 days",
+        "dayDone": "{{day}}: completed",
+        "dayMissed": "{{day}}: not played"
+      },
+      "progress": {
+        "title": "Your progress",
+        "solved": "Puzzles solved",
+        "winRate": "Win rate",
+        "best": "Best time",
+        "view": "All statistics"
+      },
+      "rank": {
+        "title": "Leaderboard",
+        "points": "Points",
+        "rank": "Rank",
+        "signIn": "Sign in to earn points and climb the leaderboard.",
+        "signInButton": "Sign in",
+        "view": "View leaderboard"
+      }
+    },
+    "levels": {
+      "title": "Choose your challenge",
+      "text": "From relaxing to fiendish: every puzzle has exactly one solution, reachable by logic alone.",
+      "play": "Play",
+      "meter": "Difficulty {{value}} of 5",
+      "easy": "Singles only. Perfect for learning and a relaxing break.",
+      "medium": "Adds pointing pairs and box/line reductions.",
+      "hard": "Naked and hidden pairs and triples come into play.",
+      "expert": "Needs advanced patterns like the X-Wing and the XY-Wing.",
+      "master": "The fewest clues and every technique. A true test."
+    },
+    "features": {
+      "title": "Everything you need to play better",
+      "text": "Built for players who want to improve, not just fill in numbers.",
+      "hints": {
+        "title": "Hints that teach",
+        "text": "Each hint names the technique and explains why it works, so you learn instead of guessing."
+      },
+      "offline": {
+        "title": "Plays offline",
+        "text": "Install it like an app. Puzzles are generated on your device, with or without a connection."
+      },
+      "languages": {
+        "title": "Three languages",
+        "text": "English, French and Arabic, with a fully right-to-left layout in Arabic."
+      },
+      "daily": {
+        "title": "Daily challenge",
+        "text": "One new puzzle every day. Build a streak and earn a badge for every complete month."
+      },
+      "leaderboard": {
+        "title": "Leaderboard",
+        "text": "Verified scores, weekly and all-time rankings, and a race on every daily puzzle."
+      },
+      "themes": {
+        "title": "Easy on the eyes",
+        "text": "Light and dark themes, clear highlights and full keyboard support."
+      }
+    },
+    "steps": {
+      "title": "How it works",
+      "pick": {
+        "title": "Pick a level",
+        "text": "Start easy or jump straight into an expert grid."
+      },
+      "solve": {
+        "title": "Solve by logic",
+        "text": "Fill the grid so every row, column and box holds 1 to 9 once."
+      },
+      "learn": {
+        "title": "Learn and climb",
+        "text": "Use hints to learn new techniques, then race up the leaderboard."
+      }
+    },
+    "cta": {
+      "title": "Ready for your next grid?",
+      "text": "No account needed to play. Sign in whenever you want to keep your score.",
+      "button": "Start playing"
+    }
   },
   "game": {
     "mistakes": "Mistakes",

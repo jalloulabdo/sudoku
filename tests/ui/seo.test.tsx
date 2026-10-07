@@ -60,9 +60,9 @@ describe('how to play', () => {
 });
 
 describe('accessibility', () => {
-  it('has a skip link to the main content', () => {
+  it('has a skip link to the main content', async () => {
     renderAt('/en');
-    const skip = screen.getByRole('link', { name: 'Skip to content' });
+    const skip = await screen.findByRole('link', { name: 'Skip to content' });
     expect(skip.getAttribute('href')).toBe('#main');
     expect(document.getElementById('main')?.tagName).toBe('MAIN');
   });

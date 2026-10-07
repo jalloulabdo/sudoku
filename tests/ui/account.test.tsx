@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { routes } from '../../src/App';
 import '../../src/i18n';
@@ -119,11 +119,12 @@ describe('profile', () => {
 describe('header', () => {
   it('links to sign-in, or to the profile with the username', async () => {
     renderAt('/en');
-    expect(screen.getByRole('link', { name: 'Sign in' }).getAttribute('href')).toBe('/en/login');
+    const header = async () => within(await screen.findByRole('banner'));
+    expect((await header()).getByRole('link', { name: 'Sign in' }).getAttribute('href')).toBe('/en/login');
     cleanup();
     accountStore.getState().setUser({ ...USER, username: 'Champion' });
     renderAt('/en');
-    expect(screen.getByRole('link', { name: 'Champion' }).getAttribute('href')).toBe('/en/profile');
+    expect((await header()).getByRole('link', { name: 'Champion' }).getAttribute('href')).toBe('/en/profile');
   });
 });
 
