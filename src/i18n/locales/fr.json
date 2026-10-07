@@ -37,9 +37,9 @@
     "dailyDone": "La grille du jour est terminée. Revenez demain !",
     "hero": {
       "badge": "Gratuit · Hors ligne · Sans publicité",
-      "titleStart": "Entraînez votre cerveau,",
-      "titleHighlight": "une grille à la fois.",
-      "text": "Le Sudoku classique avec cinq niveaux de difficulté, un nouveau défi chaque jour et des indices qui expliquent la logique de chaque coup. Jouez immédiatement, même sans connexion.",
+      "titleStart": "Jouez au Sudoku en ligne,",
+      "titleHighlight": "entraînez votre cerveau.",
+      "text": "Le Sudoku classique et gratuit, avec cinq niveaux de difficulté, un nouveau défi chaque jour et des indices qui expliquent la logique de chaque coup. Jouez au Sudoku en ligne ou hors ligne et entraînez votre cerveau, une grille à la fois.",
       "play": "Jouer maintenant",
       "resume": "Reprendre la partie",
       "daily": "Défi du jour",
@@ -561,5 +561,11 @@
     "gamesScored": "Parties classées",
     "allTimeRank": "Rang général",
     "noScores": "Résolvez une grille en étant connecté pour gagner vos premiers points."
+  },
+  "root": {
+    "title": "Sudoku Master : jouez au Sudoku gratuitement en ligne",
+    "text": "Sudoku Master est un jeu de Sudoku gratuit en ligne qui fonctionne aussi hors ligne : cinq niveaux de difficulté, un défi chaque jour, un classement et des indices qui expliquent la logique de chaque coup. Choisissez votre langue pour commencer à jouer.",
+    "choose": "Choisissez votre langue",
+    "levels": "Ou lancez directement un niveau de Sudoku"
   }
 }

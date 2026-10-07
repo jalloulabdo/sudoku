@@ -8,8 +8,9 @@ import { OfflineBanner } from './components/OfflineBanner';
 import { SettingsModal } from './components/modals/SettingsModal';
 import { useLocalePath } from './hooks/useLocaleRoute';
 import { useTheme } from './hooks/useTheme';
-import { applyLocale, resolveLocale } from './i18n';
+import i18n, { applyLocale, resolveLocale } from './i18n';
 import { LOCALES, isLocale } from './i18n/locales';
+import { DIFFICULTIES } from './logic/types';
 import { DailyPlayPage, PlayPage } from './pages/Play';
 import { useSeo } from './seo/useSeo';
 
@@ -34,17 +35,48 @@ function RootPage() {
   useSeo({ title: t('seo.home.title'), description: t('seo.home.description'), isRoot: true });
   useEffect(() => navigate(`/${resolveLocale()}`, { replace: true }), [navigate]);
   return (
-    <main className="mx-auto flex min-h-dvh max-w-md flex-col items-center justify-center gap-6 px-4">
-      <h1 className="text-3xl font-bold">{t('app.name')}</h1>
-      <ul className="flex w-full flex-col gap-2">
-        {LOCALES.map((l) => (
-          <li key={l.code}>
-            <a href={`/${l.code}`} lang={l.code} dir={l.dir} className="flex min-h-12 items-center justify-center rounded-xl bg-surface-2 font-medium">
-              {l.nativeName}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <main className="mx-auto flex min-h-dvh w-full max-w-3xl flex-col justify-center gap-8 px-4 py-12">
+      <header className="text-center">
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <span className="text-gradient">{t('root.title')}</span>
+        </h1>
+        <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted">{t('root.text')}</p>
+      </header>
+      <section aria-labelledby="root-languages">
+        <h2 id="root-languages" className="mb-3 text-center text-lg font-semibold">
+          {t('root.choose')}
+        </h2>
+        <ul className="grid gap-3 sm:grid-cols-3">
+          {LOCALES.map((l) => (
+            <li key={l.code}>
+              {/* Each language introduces itself in its own words. */}
+              <a
+                href={`/${l.code}`}
+                lang={l.code}
+                dir={l.dir}
+                className="lift flex h-full flex-col gap-1 rounded-2xl border border-line bg-surface p-4"
+              >
+                <span className="text-lg font-bold">{l.nativeName}</span>
+                <span className="text-sm text-muted">{i18n.getFixedT(l.code)('app.tagline')}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <nav aria-labelledby="root-levels" className="text-center">
+        <h2 id="root-levels" className="mb-2 text-sm font-semibold text-muted">
+          {t('root.levels')}
+        </h2>
+        <ul className="flex flex-wrap justify-center gap-2">
+          {DIFFICULTIES.map((d) => (
+            <li key={d}>
+              <a href={`/en/play/${d}`} className="inline-flex min-h-11 items-center rounded-xl bg-surface-2 px-4 text-sm font-medium">
+                {t(`landing.${d}.heading`)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </main>
   );
 }

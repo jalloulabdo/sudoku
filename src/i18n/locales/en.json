@@ -37,9 +37,9 @@
     "dailyDone": "Today's puzzle is done. Come back tomorrow!",
     "hero": {
       "badge": "Free · Works offline · No ads",
-      "titleStart": "Train your brain,",
-      "titleHighlight": "one grid at a time.",
-      "text": "Classic Sudoku with five difficulty levels, a fresh daily challenge and hints that explain the logic behind every move. Play instantly, even without a connection.",
+      "titleStart": "Play Sudoku online,",
+      "titleHighlight": "train your brain.",
+      "text": "Free classic Sudoku with five difficulty levels, a new daily challenge and hints that explain the logic behind every move. Play Sudoku online or offline and train your brain, one grid at a time.",
       "play": "Play now",
       "resume": "Resume game",
       "daily": "Today's challenge",
@@ -559,5 +559,11 @@
     "gamesScored": "Ranked games",
     "allTimeRank": "All-time rank",
     "noScores": "Solve a puzzle while signed in to earn your first points."
+  },
+  "root": {
+    "title": "Sudoku Master: play free Sudoku online",
+    "text": "Sudoku Master is a free online Sudoku game that also works offline: five difficulty levels, a new daily challenge, a leaderboard and hints that explain the logic behind every move. Choose your language to start playing.",
+    "choose": "Choose your language",
+    "levels": "Or jump straight into a Sudoku level"
   }
 }

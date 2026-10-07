@@ -11,10 +11,10 @@ self.addEventListener('message', (event) => {
 });
 
 // Every built file, including each prerendered page. Pages are cached under their real file
-// name (fr/daily/index.html), so caching never depends on how the host handles clean URLs,
-// and both /fr/daily and /fr/daily/ are answered from that entry.
+// name (fr/daily.html), so caching never depends on how the host handles clean URLs, and both
+// /fr/daily and /fr/daily/ are answered from that entry.
 precacheAndRoute(self.__WB_MANIFEST, {
-  urlManipulation: ({ url }) => [new URL(`${url.pathname.replace(/\/$/, '')}/index.html`, url)],
+  urlManipulation: ({ url }) => [new URL(`${url.pathname.replace(/\/$/, '')}.html`, url)],
 });
 cleanupOutdatedCaches();
 

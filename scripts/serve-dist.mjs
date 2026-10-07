@@ -26,7 +26,8 @@ const COMPRESSIBLE = new Set(['.html', '.js', '.css', '.json', '.webmanifest', '
 
 function resolveFile(pathname) {
   const safe = normalize(decodeURIComponent(pathname)).replace(/^(\.\.[/\\])+/, '');
-  for (const candidate of [safe, join(safe, 'index.html')]) {
+  const bare = safe.replace(/\/$/, '');
+  for (const candidate of [safe, `${bare}.html`, join(safe, 'index.html')]) {
     const file = join(ROOT, candidate);
     if (existsSync(file) && statSync(file).isFile()) return file;
   }

@@ -56,6 +56,10 @@ One-time setup (needs a Cloudflare account; `npx wrangler login` first):
    npx wrangler pages secret put TURNSTILE_SECRET
    ```
 
+**Site URL.** Canonical links, hreflang and the sitemap need the site's public address. On Cloudflare Pages it is
+detected automatically (`https://<project>.pages.dev`); once you use your own domain, set `VITE_SITE_URL` to it.
+Pages are generated as `fr/play/hard.html`, which Pages serves at `/fr/play/hard` without a redirect.
+
 Deploy (the `VITE_*` values are public and baked into the build):
 
 ```bash
@@ -70,6 +74,10 @@ all traffic goes through Cloudflare's network, which provides DDoS protection, t
 dashboard settings: SSL/TLS *Full (strict)*, *Always Use HTTPS*, *Bot Fight Mode*, and a rate-limiting rule on
 `/api/auth/*`. The app already sends its own security headers (CSP, HSTS, frame and referrer policies) from `dist/_headers`,
 and the API rate-limits sign-in requests per email and per IP.
+
+**www and non-www.** Add both `your-domain.com` and `www.your-domain.com` in Pages → Custom domains, then in the
+dashboard go to Rules → Redirect Rules → *Create rule* → template *Redirect from WWW to Root* (301). Every page then has
+exactly one address, which search engines expect.
 
 Paths that aren't prerendered (e.g. `/fr/daily/2026-09-30`) are served `index.html` by Pages automatically.
 

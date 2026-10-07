@@ -8,6 +8,21 @@ import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 const SSR_ENTRY = resolve('dist-ssr/entry-server.js');
+
+/**
+ * Public origin for canonical/hreflang links and the sitemap: VITE_SITE_URL when set (your own
+ * domain), otherwise, on Cloudflare Pages builds, the project's production address derived from
+ * the deployment URL (https://3f6dc8c8.sudoku-5dk.pages.dev → https://sudoku-5dk.pages.dev).
+ */
+function resolveSiteUrl(): string | undefined {
+  if (process.env.VITE_SITE_URL) return process.env.VITE_SITE_URL;
+  const deployment = process.env.CF_PAGES_URL;
+  if (!deployment) return undefined;
+  const url = new URL(deployment);
+  url.hostname = url.hostname.split('.').slice(1).join('.');
+  return url.origin;
+}
+const SITE_URL = resolveSiteUrl();
 const DAILY_INDEX = resolve('data/daily-index.json');
 const DAILY_WINDOW = { past: 3, future: 120 };
 
@@ -114,7 +129,9 @@ function prerender(): Plugin {
           throw new Error(`prerender: template placeholders missing for ${url}`);
         }
         if (url === '/') index.source = page;
-        else this.emitFile({ type: 'asset', fileName: `${url.slice(1)}/index.html`, source: page });
+        // fr/play/hard.html, served at /fr/play/hard with no redirect (Cloudflare Pages redirects
+        // a directory index such as fr/play/hard/index.html to /fr/play/hard/).
+        else this.emitFile({ type: 'asset', fileName: `${url.slice(1)}.html`, source: page });
       }
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: ssr.sitemapXml() });
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: ssr.robotsTxt() });
@@ -125,6 +142,7 @@ function prerender(): Plugin {
 }
 
 export default defineConfig(({ isSsrBuild }) => ({
+  define: SITE_URL ? { 'import.meta.env.VITE_SITE_URL': JSON.stringify(SITE_URL) } : {},
   // `npm run dev` + `npm run dev:api`: the API runs in Wrangler (Pages Functions + local D1).
   server: { proxy: { '/api': 'http://localhost:8788' } },
   plugins: [
